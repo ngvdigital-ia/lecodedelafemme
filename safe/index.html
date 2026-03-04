@@ -413,6 +413,27 @@
 
     .section-alt { background: var(--bg-subtle); }
 
+    /* Digistore24 Trusted Badge - forçar tema escuro */
+    [class*="ds24b-"] {
+      background-color: var(--bg) !important;
+      color: var(--text-muted) !important;
+      border-color: var(--border) !important;
+    }
+
+    .ds24b-top, .ds24b-bottom {
+      background: var(--bg) !important;
+      border-bottom: 1px solid var(--border) !important;
+      border-top: 1px solid var(--border) !important;
+    }
+
+    .ds24b-text, .ds24b-trust {
+      color: var(--text-secondary) !important;
+    }
+
+    [class*="ds24b-"] a {
+      color: var(--text-secondary) !important;
+    }
+
     /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
       h1 { font-size: 34px; }
@@ -618,6 +639,9 @@
     <div class="container">
       <p>Le Code de la Femme Irr&eacute;sistible est un guide digital &eacute;ducatif. Il ne fournit pas de conseils m&eacute;dicaux, de diagnostic ou de traitement. Les r&eacute;sultats individuels peuvent varier. Consultez toujours un professionnel de sant&eacute; avant de commencer tout nouveau programme.</p>
       <p>Les paiements sont trait&eacute;s de mani&egrave;re s&eacute;curis&eacute;e par Digistore24 GmbH.</p>
+      <!-- Begin of Digistore24 Trusted Badge Code -->
+      <script type="text/javascript" src="https://www.digistore24.com/trusted-badge/44515/IsTMGRlnqYpnh4k/salespage"></script>
+      <!-- End of Digistore24 Trusted Badge Code -->
     </div>
   </div>
 
@@ -625,10 +649,10 @@
   <footer>
     <div class="container">
       <div class="footer-links">
-        <a href="../privacy-policy/">Privacy Policy</a>
-        <a href="../refund-policy/">Refund Policy</a>
-        <a href="../terms-of-use/">Terms of Use</a>
-        <a href="../contact/">Contact</a>
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/refund-policy/">Refund Policy</a>
+        <a href="/terms-of-use/">Terms of Use</a>
+        <a href="/contact/">Contact</a>
       </div>
       <p class="footer-copy">&copy; 2026 Le Code de la Femme Irr&eacute;sistible. All rights reserved.</p>
     </div>

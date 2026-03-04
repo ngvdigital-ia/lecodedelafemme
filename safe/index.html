@@ -3,433 +3,617 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le Code de la Femme Irrésistible</title>
-  <meta name="description" content="Un programme pratique qui peut aider certaines femmes à recréer de la connexion, à mieux communiquer et à se positionner avec plus de clarté.">
+  <title>Le Code de la Femme Irr&eacute;sistible</title>
+  <meta name="description" content="Un programme pratique qui peut aider certaines femmes à recréer de la connexion et à se positionner avec plus de clarté.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #141414;
+      --bg-card-hover: #1a1a1a;
+      --bg-subtle: #111111;
+      --accent: #e53935;
+      --accent-dark: #c62828;
+      --accent-glow: rgba(229, 57, 53, 0.25);
+      --accent-glow-strong: rgba(229, 57, 53, 0.4);
+      --green: #22c55e;
+      --green-soft: rgba(34, 197, 94, 0.15);
+      --white: #ffffff;
+      --text: #e0e0e0;
+      --text-secondary: #a0a0a0;
+      --text-muted: #666666;
+      --border: rgba(255,255,255,0.08);
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
     body {
-      background: #ffffff;
-      color: #191919;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
-      font-size: 17px;
-      line-height: 1.75;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     img { max-width: 100%; height: auto; display: block; }
-    a { color: #0057FF; text-decoration: none; transition: color 0.2s; }
-    a:hover { color: #003fcc; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: #ff5252; }
 
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .container--narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
-    section { padding: 72px 0; }
-    section.alt { background: #f9f9f9; }
+    section { padding: 80px 0; }
 
-    h1 {
-      font-size: 42px;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.5px;
-      margin-bottom: 20px;
-    }
+    h1 { font-size: 48px; font-weight: 900; line-height: 1.08; letter-spacing: -1.5px; color: var(--white); }
+    h2 { font-size: 36px; font-weight: 800; line-height: 1.12; letter-spacing: -0.5px; color: var(--white); margin-bottom: 16px; }
+    h3 { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    p { color: var(--text-secondary); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    .text-center { text-align: center; }
 
-    h2 {
-      font-size: 30px;
-      font-weight: 700;
-      line-height: 1.25;
-      letter-spacing: -0.3px;
-      margin-bottom: 16px;
-    }
-
-    h3 {
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.35;
-      margin-bottom: 12px;
-    }
-
-    p {
-      margin-bottom: 18px;
-      color: #3a3a3a;
-    }
-
-    .lead {
-      font-size: 19px;
-      color: #555;
-      line-height: 1.7;
-    }
-
-    /* ── Hero ── */
+    /* ========== HERO ========== */
     .hero {
-      padding: 80px 0 64px;
-      text-align: center;
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero .badge {
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-text .badge {
       display: inline-block;
-      background: #e8f5e9;
-      color: #2e7d32;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
-      padding: 6px 16px;
-      border-radius: 20px;
-      margin-bottom: 28px;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
       text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-soft);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
     }
 
-    .hero h1 { font-size: 48px; margin-bottom: 20px; }
+    .hero-text h1 { margin-bottom: 20px; }
+    .hero-text h1 span { color: var(--accent); }
 
-    .hero .subtitle {
-      font-size: 20px;
-      color: #666;
-      max-width: 580px;
-      margin: 0 auto 32px;
-      line-height: 1.6;
+    .hero-text .lead {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 32px;
     }
 
-    .hero-image-placeholder {
-      width: 100%;
-      max-width: 480px;
-      height: 320px;
-      margin: 0 auto;
-      background: linear-gradient(135deg, #f0f4ff 0%, #e8ecf8 100%);
-      border-radius: 16px;
-      display: flex;
+    .btn-accent {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: #a0a8c0;
-      font-size: 14px;
-      border: 1px dashed #c8cfe0;
-    }
-
-    /* ── Cards ── */
-    .card {
-      background: #f9f9f9;
-      border-radius: 12px;
-      padding: 32px;
-      margin-bottom: 20px;
-    }
-
-    section.alt .card { background: #ffffff; }
-
-    /* ── Lists ── */
-    .check-list {
-      list-style: none;
-      padding: 0;
-      margin: 24px 0;
-    }
-
-    .check-list li {
-      padding: 10px 0 10px 32px;
-      position: relative;
-      line-height: 1.6;
-      color: #3a3a3a;
-    }
-
-    .check-list li::before {
-      content: "\2713";
-      position: absolute;
-      left: 0;
-      top: 10px;
-      color: #22c55e;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 16px;
       font-weight: 700;
-      font-size: 18px;
-    }
-
-    .x-list {
-      list-style: none;
-      padding: 0;
-      margin: 24px 0;
-    }
-
-    .x-list li {
-      padding: 10px 0 10px 32px;
-      position: relative;
-      line-height: 1.6;
-      color: #3a3a3a;
-    }
-
-    .x-list li::before {
-      content: "\2717";
-      position: absolute;
-      left: 0;
-      top: 10px;
-      color: #ef4444;
-      font-weight: 700;
-      font-size: 18px;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid #e5e7eb;
-      margin: 48px 0;
-    }
-
-    /* ── Guarantee Box ── */
-    .guarantee-box {
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      border-radius: 12px;
-      padding: 32px;
-      text-align: center;
-      margin: 32px 0;
-    }
-
-    .guarantee-box .shield { font-size: 48px; margin-bottom: 16px; }
-    .guarantee-box h3 { color: #166534; margin-bottom: 12px; }
-    .guarantee-box p { color: #3a3a3a; margin-bottom: 0; }
-
-    /* ── Offer Box ── */
-    .offer-box {
-      text-align: center;
-      padding: 48px 32px;
-      background: #fafafa;
-      border-radius: 16px;
-      border: 2px solid #e5e7eb;
-      margin: 32px 0;
-    }
-
-    .offer-box .old-price {
-      font-size: 18px;
-      color: #999;
-      text-decoration: line-through;
-      margin-bottom: 4px;
-    }
-
-    .offer-box .price {
-      font-size: 56px;
-      font-weight: 800;
-      color: #191919;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .offer-box .price-note {
-      font-size: 15px;
-      color: #777;
-      margin-bottom: 28px;
-    }
-
-    /* ── CTA Button ── */
-    .cta-btn {
-      display: inline-block;
-      background: #0057FF;
-      color: #ffffff;
-      font-size: 18px;
-      font-weight: 700;
-      padding: 18px 48px;
+      padding: 16px 40px;
       border-radius: 10px;
       border: none;
       cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-      text-align: center;
-      letter-spacing: 0.3px;
+      transition: all 0.25s;
       font-family: inherit;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      box-shadow: 0 4px 24px var(--accent-glow);
+    }
+
+    .btn-accent:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--accent-glow-strong);
+      color: var(--white);
+    }
+
+    .hero-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-image::before {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, var(--accent-glow-strong) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-mockup {
       width: 100%;
-      max-width: 400px;
+      max-width: 380px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 80px var(--accent-glow);
+      position: relative;
+      z-index: 1;
+      object-fit: cover;
     }
 
-    .cta-btn:hover {
-      background: #0046d6;
-      transform: translateY(-1px);
-      color: #ffffff;
+    /* ========== BENEFIT BAR ========== */
+    .benefit-bar {
+      padding: 36px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
-    .cta-btn:active { transform: translateY(0); }
-
-    .cta-note {
-      font-size: 13px;
-      color: #999;
-      margin-top: 12px;
+    .benefit-bar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
-    /* ── Not For ── */
+    .benefit-bar-item { display: flex; align-items: center; gap: 12px; }
+
+    .benefit-bar-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--green);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    .benefit-bar-icon svg { width: 18px; height: 18px; fill: var(--white); }
+    .benefit-bar-text { font-size: 14px; font-weight: 600; color: var(--white); line-height: 1.3; }
+
+    /* ========== PROBLEM CARDS ========== */
+    .problem-subtitle { max-width: 560px; margin: 0 auto; text-align: center; }
+
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+
+    .problem-card:hover { border-color: rgba(229, 57, 53, 0.3); }
+
+    .problem-icon {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(229, 57, 53, 0.12);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .problem-icon svg { width: 24px; height: 24px; fill: var(--accent); }
+    .problem-card h3 { font-size: 15px; margin-bottom: 8px; }
+    .problem-card p { font-size: 14px; color: var(--text-muted); margin: 0; }
+
+    .callout-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-top: 36px;
+    }
+
+    .callout-box p { font-size: 16px; font-weight: 500; color: var(--text); margin: 0; }
+    .callout-box strong { color: var(--accent); }
+
+    /* ========== TWO-COL SECTION ========== */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .two-col--reverse { direction: rtl; }
+    .two-col--reverse > * { direction: ltr; }
+
+    .feature-list { list-style: none; padding: 0; margin: 24px 0 0; }
+
+    .feature-list li {
+      padding: 10px 0 10px 36px;
+      position: relative;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .feature-list li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 12px;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--green);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z' fill='white'/%3E%3C/svg%3E");
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .section-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3), 0 0 60px var(--accent-glow);
+    }
+
     .not-for {
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      border-radius: 12px;
-      padding: 24px 32px;
-      margin-top: 24px;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #fbbf24;
+      background: rgba(251, 191, 36, 0.08);
+      border: 1px solid rgba(251, 191, 36, 0.2);
+      border-radius: 8px;
+      padding: 12px 16px;
     }
 
-    .not-for p { color: #7f1d1d; margin-bottom: 0; }
+    /* ========== BENEFITS GRID ========== */
+    .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 48px; }
 
-    /* ── Compliance ── */
-    .compliance {
-      background: #f9f9f9;
-      padding: 40px 0;
+    .benefit-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .benefit-card:hover {
+      border-color: rgba(229, 57, 53, 0.25);
+      box-shadow: 0 0 30px var(--accent-glow);
+    }
+
+    .benefit-card .icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(229, 57, 53, 0.12);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px; font-size: 20px;
+    }
+
+    .benefit-card h3 { font-size: 16px; margin-bottom: 6px; }
+    .benefit-card p { font-size: 14px; color: var(--text-muted); margin: 0; }
+
+    .product-showcase {
+      display: flex; justify-content: center; margin-top: 48px; position: relative;
+    }
+
+    .product-showcase::before {
+      content: "";
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      border-radius: 50%;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .product-mockup {
+      width: 260px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 80px var(--accent-glow);
+      position: relative; z-index: 1;
+      object-fit: cover;
+    }
+
+    /* ========== GUARANTEE ========== */
+    .guarantee-section { text-align: center; }
+    .guarantee-section h2 { font-size: 28px; margin-bottom: 16px; }
+    .guarantee-section p { max-width: 540px; margin: 0 auto; }
+
+    /* ========== PRICING CARD ========== */
+    .pricing-wrapper { position: relative; max-width: 500px; margin: 0 auto; }
+
+    .pricing-wrapper::before {
+      content: "";
+      position: absolute; inset: -2px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent), #ff5252, var(--accent-dark));
+      z-index: 0;
+    }
+
+    .pricing-card {
+      position: relative; z-index: 1;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
       text-align: center;
     }
+
+    .pricing-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .pricing-card h2 { font-size: 24px; margin-bottom: 20px; }
+    .pricing-card .price { font-size: 68px; font-weight: 900; color: var(--white); line-height: 1; margin: 8px 0; letter-spacing: -2px; }
+    .pricing-card .price span { color: var(--accent); }
+    .pricing-card .price-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+
+    .cta-main {
+      display: block; width: 100%;
+      background: var(--accent); color: var(--white);
+      font-size: 17px; font-weight: 700;
+      padding: 18px; border-radius: 10px;
+      border: none; cursor: pointer;
+      transition: all 0.25s;
+      font-family: inherit;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      box-shadow: 0 4px 24px var(--accent-glow);
+      text-align: center;
+    }
+
+    .cta-main:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--accent-glow-strong);
+      color: var(--white);
+    }
+
+    .trust-icons {
+      display: flex; align-items: center; justify-content: center;
+      gap: 24px; margin-top: 20px; font-size: 12px; color: var(--text-muted);
+    }
+
+    .trust-icons span { display: flex; align-items: center; gap: 4px; }
+
+    /* ========== COMPLIANCE ========== */
+    .compliance { padding: 32px 0; border-top: 1px solid var(--border); }
 
     .compliance p {
-      font-size: 13px;
-      color: #999;
-      line-height: 1.7;
-      max-width: 640px;
-      margin: 0 auto 12px;
+      font-size: 11px; color: var(--text-muted);
+      line-height: 1.7; text-align: center;
+      max-width: 640px; margin: 0 auto 6px;
     }
 
-    /* ── Footer ── */
+    /* ========== FOOTER ========== */
     footer {
-      background: #191919;
-      color: #888;
-      padding: 40px 0;
+      background: #050505;
+      padding: 36px 0;
       text-align: center;
-      font-size: 14px;
+      border-top: 1px solid var(--border);
     }
 
-    footer .footer-links { margin-bottom: 16px; }
-    footer .footer-links a { color: #aaa; margin: 0 12px; transition: color 0.2s; }
-    footer .footer-links a:hover { color: #fff; }
-    footer .footer-links span { color: #555; }
-    footer .copyright { color: #666; font-size: 13px; }
+    .footer-links {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 8px 24px; margin-bottom: 12px;
+    }
 
-    /* ── Responsive ── */
-    @media (max-width: 640px) {
-      body { font-size: 16px; }
-      h1 { font-size: 32px; }
-      .hero h1 { font-size: 34px; }
-      h2 { font-size: 24px; }
-      section { padding: 48px 0; }
+    .footer-links a { color: var(--text-muted); font-size: 14px; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { color: #444; font-size: 13px; }
+
+    .section-alt { background: var(--bg-subtle); }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      h1 { font-size: 34px; }
+      h2 { font-size: 28px; }
+      section { padding: 56px 0; }
       .hero { padding: 56px 0 40px; }
-      .hero .subtitle { font-size: 17px; }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
+      .hero-mockup { max-width: 260px; margin: 0 auto; }
+      .benefit-bar-grid { grid-template-columns: 1fr; gap: 16px; }
+      .benefit-bar-item { justify-content: center; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; gap: 32px; }
+      .two-col--reverse { direction: ltr; }
+      .benefits-grid { grid-template-columns: 1fr; }
       .container { padding: 0 20px; }
-      .card { padding: 24px; }
-      .offer-box { padding: 32px 20px; }
-      .offer-box .price { font-size: 44px; }
-      .cta-btn { font-size: 16px; padding: 16px 32px; }
-      .hero-image-placeholder { height: 220px; }
+      .container--narrow { padding: 0 20px; }
+      .pricing-card { padding: 36px 24px; }
+      .pricing-card .price { font-size: 52px; }
+      .btn-accent { width: 100%; justify-content: center; }
+      .hero::before { width: 300px; height: 300px; right: -50px; top: -50px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ═══════ HERO ═══════ -->
+  <!-- ══════════ HERO ══════════ -->
   <section class="hero">
     <div class="container">
-      <span class="badge">Conformit&eacute; d'abord &middot; R&eacute;sultats varient</span>
-      <h1>Le Code de la Femme Irr&eacute;sistible</h1>
-      <p class="subtitle">Un programme pratique qui peut aider certaines femmes &agrave; recr&eacute;er de la connexion, &agrave; mieux communiquer et &agrave; se positionner avec plus de clart&eacute; &mdash; surtout quand un homme s'est refroidi ou &eacute;vite l'engagement.</p>
-
-      <img src="/imagens/hero-mockup.png" alt="Le Code de la Femme Irrésistible" style="max-width: 480px; width: 100%; margin: 0 auto; border-radius: 16px;">
-    </div>
-  </section>
-
-  <!-- ═══════ POUR QUI ═══════ -->
-  <section class="alt">
-    <div class="container">
-      <h2>Pour qui c'est</h2>
-      <p class="lead">Le Code de la Femme Irr&eacute;sistible s'adresse aux femmes adultes qui :</p>
-
-      <ul class="check-list">
-        <li>Sentent qu'un homme s'est &eacute;loign&eacute;, r&eacute;pond moins, ou montre moins d'initiative</li>
-        <li>Vivent une relation &laquo; floue &raquo; (un &laquo; ficante &raquo; / une situation non assum&eacute;e) et veulent plus de clart&eacute;</li>
-        <li>Souhaitent arr&ecirc;ter de courir apr&egrave;s l'attention et retrouver un meilleur &eacute;quilibre</li>
-        <li>Veulent une approche r&eacute;aliste, sans manipulation agressive ni promesses irr&eacute;alistes</li>
-      </ul>
-
-      <div class="not-for">
-        <p><strong>Ce n'est pas pour</strong> celles qui cherchent une garantie de retour, un &laquo; script magique &raquo;, ou une m&eacute;thode pour contr&ocirc;ler quelqu'un.</p>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="badge">Conformit&eacute; d'abord &middot; R&eacute;sultats varient</span>
+          <h1>Le Code de la <span>Femme Irr&eacute;sistible</span></h1>
+          <p class="lead">Un programme pratique qui peut aider certaines femmes &agrave; recr&eacute;er de la connexion, &agrave; mieux communiquer et &agrave; se positionner avec plus de clart&eacute; &mdash; surtout quand un homme s'est refroidi ou &eacute;vite l'engagement.</p>
+          <a href="#offre" class="btn-accent">D&eacute;couvrir &rarr;</a>
+        </div>
+        <div class="hero-image">
+          <img src="/imagens/hero-mockup.png" alt="Le Code de la Femme Irrésistible" class="hero-mockup">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ CE QUE C'EST ═══════ -->
+  <!-- ══════════ BENEFIT BAR ══════════ -->
+  <div class="benefit-bar">
+    <div class="container">
+      <div class="benefit-bar-grid">
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">Guide pratique &eacute;tape par &eacute;tape</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">Acc&egrave;s digital imm&eacute;diat</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">Garantie remboursement 60 jours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ PROBLÈME ══════════ -->
   <section>
     <div class="container">
-      <h2>Ce que c'est</h2>
-      <p>Le Code de la Femme Irr&eacute;sistible est un programme (format digital) ax&eacute; sur la communication, le positionnement, l'estime personnelle et la dynamique relationnelle.</p>
-      <p>L'objectif n'est pas de &laquo; forcer &raquo; un homme &agrave; s'engager, mais de vous aider &agrave; :</p>
+      <h2 class="text-center">Pourquoi d'autres m&eacute;thodes ne fonctionnent pas</h2>
+      <p class="problem-subtitle">Beaucoup de conseils populaires poussent &agrave; des actions qui aggravent la situation.</p>
 
-      <div class="card">
-        <ul class="check-list">
-          <li>Comprendre ce qui peut provoquer un refroidissement</li>
-          <li>R&eacute;tablir une communication plus saine et plus attractive</li>
-          <li>Poser des limites plus claires (sans drama)</li>
-          <li>Sortir des comportements qui alimentent l'incertitude</li>
-          <li>Cr&eacute;er un cadre o&ugrave; l'autre peut naturellement se r&eacute;investir&hellip; ou r&eacute;v&eacute;ler clairement ses intentions</li>
-        </ul>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-icon"><svg viewBox="0 0 20 20"><path d="M13.3 7.8l-1.1-1.1L10 8.9 7.8 6.7 6.7 7.8 8.9 10l-2.2 2.2 1.1 1.1L10 11.1l2.2 2.2 1.1-1.1L11.1 10l2.2-2.2z"/></svg></div>
+          <h3>Messages impulsifs</h3>
+          <p>Textos trop longs, charg&eacute;s d'&eacute;motion, qui cr&eacute;ent plus de distance.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon"><svg viewBox="0 0 20 20"><path d="M13.3 7.8l-1.1-1.1L10 8.9 7.8 6.7 6.7 7.8 8.9 10l-2.2 2.2 1.1 1.1L10 11.1l2.2 2.2 1.1-1.1L11.1 10l2.2-2.2z"/></svg></div>
+          <h3>Jeux de jalousie</h3>
+          <p>Tester la jalousie ou provoquer des ultimatums &mdash; rarement efficace.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon"><svg viewBox="0 0 20 20"><path d="M13.3 7.8l-1.1-1.1L10 8.9 7.8 6.7 6.7 7.8 8.9 10l-2.2 2.2 1.1 1.1L10 11.1l2.2 2.2 1.1-1.1L11.1 10l2.2-2.2z"/></svg></div>
+          <h3>Tout donner sans retour</h3>
+          <p>Prouver sa valeur en donnant tout, ce qui d&eacute;s&eacute;quilibre la dynamique.</p>
+        </div>
       </div>
 
-      <p>Cette approche peut contribuer &agrave; ramener du respect, de la coh&eacute;rence et une meilleure connexion, quand la situation s'y pr&ecirc;te.</p>
-
-      <img src="/imagens/femme-silhouette.png" alt="Femme confiante" style="max-width: 500px; width: 100%; margin: 32px auto 0; border-radius: 12px;">
+      <div class="callout-box">
+        <p><strong>Le Code de la Femme Irr&eacute;sistible</strong> propose une voie plus pos&eacute;e : moins de r&eacute;action, plus de strat&eacute;gie &eacute;motionnelle saine.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ═══════ POURQUOI D'AUTRES MÉTHODES ═══════ -->
-  <section class="alt">
+  <!-- ══════════ CE QUE C'EST ══════════ -->
+  <section class="section-alt">
     <div class="container">
-      <h2>Pourquoi d'autres m&eacute;thodes peuvent ne pas fonctionner</h2>
-      <p>Beaucoup de conseils populaires poussent &agrave; :</p>
-
-      <ul class="x-list">
-        <li>Envoyer des messages impulsifs, trop longs, ou charg&eacute;s d'&eacute;motion</li>
-        <li>Tester la jalousie, faire des jeux risqu&eacute;s, ou provoquer des ultimatums</li>
-        <li>&laquo; Tout donner &raquo; pour prouver sa valeur (ce qui peut d&eacute;s&eacute;quilibrer la dynamique)</li>
-        <li>Esp&eacute;rer que le temps r&eacute;solve un probl&egrave;me sans ajuster la communication</li>
-      </ul>
-
-      <div class="card">
-        <p style="margin-bottom: 0; text-align: center;"><strong>Le Code de la Femme Irr&eacute;sistible</strong> propose une voie plus pos&eacute;e : moins de r&eacute;action, plus de strat&eacute;gie &eacute;motionnelle saine.</p>
+      <div class="two-col">
+        <div>
+          <h2>Ce que c'est</h2>
+          <p>Un programme digital ax&eacute; sur la communication, le positionnement, l'estime personnelle et la dynamique relationnelle.</p>
+          <ul class="feature-list">
+            <li>Comprendre ce qui provoque un refroidissement</li>
+            <li>R&eacute;tablir une communication plus saine et attractive</li>
+            <li>Poser des limites plus claires (sans drama)</li>
+            <li>Sortir des comportements qui alimentent l'incertitude</li>
+            <li>Cr&eacute;er un cadre o&ugrave; l'autre peut se r&eacute;investir naturellement</li>
+          </ul>
+        </div>
+        <img src="/imagens/femme-silhouette.png" alt="Femme confiante" class="section-image">
       </div>
     </div>
   </section>
 
-  <!-- ═══════ BÉNÉFICES POSSIBLES ═══════ -->
+  <!-- ══════════ POUR QUI ══════════ -->
   <section>
     <div class="container">
-      <h2>B&eacute;n&eacute;fices possibles</h2>
-      <p>Selon votre situation et votre constance, ce programme peut aider &agrave; :</p>
-
-      <div class="card">
-        <ul class="check-list">
-          <li>Retrouver une communication plus simple, plus efficace, moins anxieuse</li>
-          <li>R&eacute;duire les comportements qui donnent une impression de &laquo; demande &raquo; ou de pression</li>
-          <li>Recr&eacute;er de la tension positive et de l'int&eacute;r&ecirc;t (sans surjouer)</li>
-          <li>Clarifier rapidement si l'autre est capable d'assumer une relation</li>
-          <li>Renforcer votre confiance, votre calme et votre capacit&eacute; &agrave; poser un cadre</li>
-        </ul>
+      <div class="two-col two-col--reverse">
+        <div>
+          <h2>Pour qui c'est</h2>
+          <p>Le Code de la Femme Irr&eacute;sistible s'adresse aux femmes adultes qui :</p>
+          <ul class="feature-list">
+            <li>Sentent qu'un homme s'est &eacute;loign&eacute; ou r&eacute;pond moins</li>
+            <li>Vivent une relation &laquo; floue &raquo; et veulent plus de clart&eacute;</li>
+            <li>Souhaitent arr&ecirc;ter de courir apr&egrave;s l'attention</li>
+            <li>Veulent une approche r&eacute;aliste, sans manipulation</li>
+          </ul>
+          <p class="not-for"><strong>Ce n'est pas pour</strong> celles qui cherchent une garantie de retour, un &laquo; script magique &raquo;, ou une m&eacute;thode pour contr&ocirc;ler quelqu'un.</p>
+        </div>
+        <img src="/imagens/connexion-abstract.png" alt="Connexion" class="section-image">
       </div>
-
-      <img src="/imagens/connexion-abstract.png" alt="Connexion" style="max-width: 400px; width: 100%; margin: 24px auto; border-radius: 12px;">
-
-      <p style="font-size: 13px; color: #999;"><em>Aucune promesse de r&eacute;sultat pr&eacute;cis : chaque relation, chaque personne et chaque contexte sont diff&eacute;rents.</em></p>
     </div>
   </section>
 
-  <!-- ═══════ GARANTIE ═══════ -->
-  <section class="alt">
+  <!-- ══════════ BÉNÉFICES ══════════ -->
+  <section class="section-alt">
     <div class="container">
-      <div class="guarantee-box">
-        <img src="/imagens/garantie-60-jours.png" alt="Garantie 60 jours" style="width: 150px; margin: 0 auto 16px;">
-        <h3>Garantie remboursement 60 jours</h3>
-        <p>Vous avez 60 jours pour essayer Le Code de la Femme Irr&eacute;sistible. Si vous estimez que cela ne vous aide pas de mani&egrave;re utile, vous pouvez demander un remboursement via votre re&ccedil;u Digistore24 pendant la p&eacute;riode de garantie.</p>
+      <h2 class="text-center">B&eacute;n&eacute;fices possibles</h2>
+      <p class="text-center" style="max-width: 500px; margin: 0 auto;">Selon votre situation et votre constance, ce programme peut aider &agrave; :</p>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="icon">&#128172;</div>
+          <h3>Communication efficace</h3>
+          <p>Plus simple, plus directe, moins anxieuse.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">&#128161;</div>
+          <h3>Moins de pression</h3>
+          <p>R&eacute;duire les comportements qui donnent une impression de demande.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">&#10024;</div>
+          <h3>Tension positive</h3>
+          <p>Recr&eacute;er de l'int&eacute;r&ecirc;t sans surjouer.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">&#128170;</div>
+          <h3>Confiance renforc&eacute;e</h3>
+          <p>Calme, clart&eacute; et capacit&eacute; &agrave; poser un cadre.</p>
+        </div>
       </div>
+
+      <div class="product-showcase">
+        <img src="/imagens/hero-mockup.png" alt="Le Code de la Femme Irrésistible" class="product-mockup">
+      </div>
+
+      <p class="text-center" style="margin-top: 32px; font-size: 13px; color: var(--text-muted);"><em>Aucune promesse de r&eacute;sultat pr&eacute;cis : chaque relation, chaque personne et chaque contexte sont diff&eacute;rents.</em></p>
     </div>
   </section>
 
-  <!-- ═══════ OFFRE ═══════ -->
+  <!-- ══════════ GARANTIE ══════════ -->
   <section>
-    <div class="container">
-      <div class="offer-box">
-        <h2>Offre</h2>
-        <div class="price">&euro;49</div>
-        <p class="price-note">Paiement unique &middot; Acc&egrave;s digital imm&eacute;diat &middot; Garantie 60 jours</p>
-        <a href="#" class="cta-btn">Acheter maintenant</a>
-        <p class="cta-note">Paiement s&eacute;curis&eacute; par Digistore24</p>
+    <div class="container--narrow">
+      <div class="guarantee-section">
+        <img src="/imagens/garantie-60-jours.png" alt="Garantie 60 jours" style="width: 150px; height: 150px; margin: 0 auto 28px; display: block; border-radius: 50%;">
+        <h2>Garantie remboursement 60 jours</h2>
+        <p>Vous avez 60 jours pour essayer Le Code de la Femme Irr&eacute;sistible. Si vous estimez que cela ne vous aide pas, vous pouvez demander un remboursement via votre re&ccedil;u Digistore24. Sans questions.</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ COMPLIANCE ═══════ -->
+  <!-- ══════════ OFFRE ══════════ -->
+  <section class="section-alt" id="offre">
+    <div class="container">
+      <div class="pricing-wrapper">
+        <div class="pricing-card">
+          <span class="pricing-badge">Offre &mdash; Acc&egrave;s imm&eacute;diat</span>
+          <h2>Le Code de la Femme Irr&eacute;sistible</h2>
+          <div class="price"><span>&euro;49</span></div>
+          <p class="price-sub">Paiement unique &middot; Acc&egrave;s digital imm&eacute;diat &middot; Garantie 60 jours</p>
+          <a href="#" class="cta-main">Acheter maintenant</a>
+          <div class="trust-icons">
+            <span>&#128274; Paiement s&eacute;curis&eacute;</span>
+            <span>&#9989; Acc&egrave;s imm&eacute;diat</span>
+            <span>&#128737; 60 jours garantie</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ COMPLIANCE ══════════ -->
   <div class="compliance">
     <div class="container">
       <p>Le Code de la Femme Irr&eacute;sistible est un guide digital &eacute;ducatif. Il ne fournit pas de conseils m&eacute;dicaux, de diagnostic ou de traitement. Les r&eacute;sultats individuels peuvent varier. Consultez toujours un professionnel de sant&eacute; avant de commencer tout nouveau programme.</p>
@@ -437,19 +621,16 @@
     </div>
   </div>
 
-  <!-- ═══════ FOOTER ═══════ -->
+  <!-- ══════════ FOOTER ══════════ -->
   <footer>
     <div class="container">
       <div class="footer-links">
         <a href="../privacy-policy/">Privacy Policy</a>
-        <span>&middot;</span>
         <a href="../refund-policy/">Refund Policy</a>
-        <span>&middot;</span>
         <a href="../terms-of-use/">Terms of Use</a>
-        <span>&middot;</span>
         <a href="../contact/">Contact</a>
       </div>
-      <p class="copyright">&copy; 2026 Le Code de la Femme Irr&eacute;sistible. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 Le Code de la Femme Irr&eacute;sistible. All rights reserved.</p>
     </div>
   </footer>
 

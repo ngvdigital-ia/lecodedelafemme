@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Code De La Femme Irrésistible</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #000000;
+      color: #FFFFFF;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+
+    .warning-banner {
+      background: linear-gradient(90deg, #b91c1c, #dc2626);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      line-height: 1.5;
+    }
+
+    .section { padding: 48px 24px; }
+    .section--alt {
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+    .section--alt h1,
+    .section--alt h2 { color: #000000; }
+    .section--alt .benefits-list li::before { color: #16a34a; }
+    .section--alt .guarantee { color: rgba(0,0,0,0.5); }
+    .section__inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .progress-section {
+      padding: 24px 24px 0;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .progress-bar-track {
+      width: 100%;
+      height: 40px;
+      background: #1a1a1a;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      border: 2px solid #333;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 90%;
+      background: linear-gradient(90deg, #16a34a, #22c55e);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    h1 { font-size: 32px; font-weight: 700; line-height: 1.3; margin-bottom: 24px; text-align: center; }
+    h2 { font-size: 26px; font-weight: 700; line-height: 1.35; margin-bottom: 20px; }
+    p { margin-bottom: 20px; }
+
+    .benefits-list { list-style: none; padding: 0; margin: 24px 0; }
+    .benefits-list li { padding: 12px 0 12px 36px; position: relative; line-height: 1.6; }
+    .benefits-list li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      color: #22c55e;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .arrow-list { list-style: none; padding: 0; margin: 24px 0; }
+    .arrow-list li { padding: 10px 0 10px 32px; position: relative; line-height: 1.6; }
+    .arrow-list li::before {
+      content: "\2192";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .cta-section { text-align: center; padding: 40px 0 16px; }
+    .cta-accept {
+      display: block;
+      width: 100%;
+      padding: 20px 40px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #15803d, #16a34a);
+      color: #FFFFFF;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 0 30px rgba(34,197,94,0.35), 0 0 60px rgba(34,197,94,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      letter-spacing: 0.3px;
+      line-height: 1.4;
+      font-family: inherit;
+    }
+    .cta-accept:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(34,197,94,0.5), 0 0 80px rgba(34,197,94,0.2);
+    }
+    .cta-decline {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px;
+      background: none;
+      border: none;
+      color: #999999;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: underline;
+      font-family: inherit;
+    }
+    .cta-decline:hover { color: #cccccc; }
+
+    .guarantee { text-align: center; padding: 16px 0; color: rgba(255,255,255,0.6); font-size: 14px; }
+
+    /* Spots Counter */
+    .spots-counter {
+      text-align: center;
+      margin: 32px 0;
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(220, 38, 38, 0.05));
+      border: 1px solid rgba(220, 38, 38, 0.3);
+      border-radius: 12px;
+    }
+    .spots-counter .spots-label {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #f87171;
+      margin-bottom: 8px;
+    }
+    .spots-counter .spots-number {
+      font-size: 72px;
+      font-weight: 800;
+      color: #ef4444;
+      line-height: 1;
+      margin-bottom: 4px;
+      transition: all 0.5s ease;
+    }
+    .spots-counter .spots-text {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+    }
+    .spots-counter .spots-number.pulse {
+      animation: pulse-red 0.6s ease;
+    }
+    @keyframes pulse-red {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); color: #ff0000; }
+      100% { transform: scale(1); }
+    }
+
+    /* Separator */
+    .separator {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      margin: 32px auto;
+      border-radius: 2px;
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 28px 0;
+    }
+    .highlight-box p:last-child { margin-bottom: 0; }
+
+    .price-compare {
+      text-align: center;
+      margin: 32px 0;
+    }
+    .price-compare .old-price {
+      font-size: 22px;
+      color: #999;
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+    .price-compare .new-price {
+      font-size: 56px;
+      font-weight: 800;
+      color: #22c55e;
+      line-height: 1.1;
+    }
+    .price-compare .price-note {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 4px;
+    }
+
+    @media (max-width: 640px) {
+      body { font-size: 16px; }
+      h1 { font-size: 26px; }
+      h2 { font-size: 22px; }
+      .section { padding: 32px 16px; }
+      .cta-accept { font-size: 18px; padding: 18px 24px; }
+      .progress-section { padding: 16px 16px 0; }
+      .warning-banner { font-size: 13px; padding: 10px 16px; }
+      .spots-counter .spots-number { font-size: 56px; }
+      .price-compare .new-price { font-size: 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Warning Banner -->
+  <div class="warning-banner">
+    IMPORTANT: Your purchase is being processed. Please DO NOT close this page until the process is complete.
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-section">
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill">
+        <span>PURCHASE COMPLETE!</span>
+        <span>90%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 1 (white) - Congratulations -->
+  <div class="section section--alt">
+    <div class="section__inner">
+      <h1>CONGRATULATIONS ON YOUR PURCHASE!</h1>
+      <p><strong>Your access to LE CODE DE LA FEMME IRR&Eacute;SISTIBLE is being activated right now.</strong></p>
+      <p>You have just joined a select group of women who have discovered the best-kept secret of male psychology.</p>
+      <p>From this moment on, you have access to the complete system that teaches you how to trigger a man's deepest impulse &mdash; the one that makes him become completely obsessed with one single woman.</p>
+      <p>That means:</p>
+      <ul class="arrow-list">
+        <li>You will know exactly what to say to create an emotional connection he has never felt with anyone else</li>
+        <li>You will understand how to make him feel like he won you over &mdash; even while you are the one in control</li>
+        <li>You will have in your hands the techniques that make a man think about you from the moment he wakes up until the moment he closes his eyes</li>
+      </ul>
+      <p>With LE CODE, you have finally stepped into the side that very few women ever get to know. It is like gaining access to the internal manual of the male mind &mdash; the one men will never hand over to you willingly.</p>
+    </div>
+  </div>
+
+  <!-- Section 2 (dark) - What you have -->
+  <div class="section">
+    <div class="section__inner">
+      <p>What you have in your hands is not just a course. It is an advantage that completely changes the way men see you, treat you, and value you.</p>
+      <p><strong>LE CODE will give you the complete map.</strong> The techniques. The triggers. The step-by-step method.</p>
+      <div class="separator"></div>
+      <h2>But let me ask you something:</h2>
+      <p>Has it ever happened that you read something, understood everything perfectly...</p>
+      <p>And then when the moment came, in the real conversation, with the real man...</p>
+      <p><strong>You froze.</strong></p>
+      <p>You were not sure whether you were using the right technique. Whether that was the right moment. Whether the message you wanted to send would bring him closer or push him away.</p>
+    </div>
+  </div>
+
+  <!-- Section 3 (white) - The truth -->
+  <div class="section section--alt">
+    <div class="section__inner">
+      <h2>Because the truth is:</h2>
+      <p>No program can anticipate the specific situation you are living through. The dynamic with your man. The history between the two of you. What he said yesterday. What he did last week.</p>
+      <p><strong>That is unique. It is yours alone.</strong></p>
+      <p>And that is exactly why I created something I have never offered before.</p>
+    </div>
+  </div>
+
+  <!-- Section 4 (dark) - The offer -->
+  <div class="section">
+    <div class="section__inner">
+      <h2>During the next six months... you will have direct access to me on WhatsApp.</h2>
+      <p>Not to a support team. Not to an assistant. <strong>To me.</strong></p>
+      <p>You send me the situation &mdash; what happened, what he said, what you want to achieve &mdash; and I will tell you exactly what to do.</p>
+      <p><strong>Word for word, if necessary.</strong></p>
+      <p>I will be there when he disappears out of nowhere and you do not know whether to text him or wait.</p>
+      <p>When the two of you have an argument and you do not know how to respond without seeming needy or too cold.</p>
+      <p>When you feel him pulling away and you do not know which LE CODE technique to use in that exact moment.</p>
+      <p>When you want to move the relationship to the next level and you are not sure how to do it without putting pressure on him.</p>
+      <p><strong>I will be there.</strong></p>
+    </div>
+  </div>
+
+  <!-- Section 5 (white) - Value -->
+  <div class="section section--alt">
+    <div class="section__inner">
+      <h2>Hundreds of women invest $300 for a single coaching session with me.</h2>
+      <p>Just to talk for one hour.</p>
+      <p>What I am offering here is different.</p>
+      <div class="highlight-box">
+        <p><strong>Ongoing access. For six full months.</strong></p>
+        <p>Whenever you need it. No scheduling. No waiting.</p>
+      </div>
+      <p>But there is something important you need to understand.</p>
+      <p><strong>I cannot support everyone in this way.</strong></p>
+      <p>Each WhatsApp conversation receives real, personalized attention. And there is a natural limit to how many women I can guide at the same time while giving each one the quality she deserves.</p>
+      <p>That is why the number of spots for this mentorship is <strong>strictly limited.</strong></p>
+    </div>
+  </div>
+
+  <!-- Section 6 (dark) - Spots Counter -->
+  <div class="section">
+    <div class="section__inner">
+      <div class="spots-counter">
+        <div class="spots-label">Spots remaining</div>
+        <div class="spots-number" id="spotsNumber">5</div>
+        <div class="spots-text">out of 10 spots available</div>
+      </div>
+
+      <h2 style="text-align: center; margin-top: 32px;">And the price?</h2>
+      <p>One in-person session with me costs <strong>$197</strong>.</p>
+      <p>A six-month mentorship with weekly access? Normally, <strong>$497</strong>.</p>
+      <p>But because you have just joined LE CODE and you are at the beginning of your journey &mdash; exactly when the questions tend to hit the hardest &mdash; I want you to have this support without the price becoming an obstacle.</p>
+      <p>That is why, today, on this page, you can secure six months of one-on-one mentorship with me on WhatsApp for just:</p>
+
+      <div class="price-compare">
+        <div class="old-price">$497</div>
+        <div class="new-price">$97</div>
+        <div class="price-note">One-time payment &middot; No automatic renewal &middot; No surprises</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 7 (white) - What's included -->
+  <div class="section section--alt">
+    <div class="section__inner">
+      <h2>What is included:</h2>
+      <ul class="benefits-list">
+        <li><strong>Direct access to me on WhatsApp</strong> for six full months</li>
+        <li><strong>Personalized guidance</strong> for your specific situation &mdash; your man, your relationship, your moment</li>
+        <li><strong>Practical answers:</strong> what to say, how to say it, when to say it</li>
+        <li><strong>Application of the LE CODE techniques</strong> to your real-life context</li>
+        <li><strong>Emotional and strategic support</strong> during the most critical moments</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p><strong>And what happens if I answer all of that for you now?</strong></p>
+        <p>You put LE CODE into practice with the certainty that you are not alone.</p>
+        <p>You make every decision with a specialist by your side.</p>
+        <p>You stop guessing and start acting with precision.</p>
+        <p><strong>And the results come much faster.</strong></p>
+      </div>
+
+      <p>Because the difference between knowledge and real transformation... is having someone who helps you apply that knowledge to the life you are actually living.</p>
+    </div>
+  </div>
+
+  <!-- Section 8 (dark) - Final CTA -->
+  <div class="section">
+    <div class="section__inner">
+      <h2>So now you have two options.</h2>
+      <p>You can move forward with LE CODE on your own. Apply everything you have learned and figure it out along the way. That works. You will get results.</p>
+      <p>Or...</p>
+      <p>You can have me by your side. For the next six months. For every question. Every situation. Every important decision. With personalized guidance, in real time, on your WhatsApp. <strong>For just $97. One time only.</strong></p>
+      <p>Click the button below now to secure your spot in the mentorship.</p>
+      <p><strong>Remember: when the spots are gone, they are truly gone.</strong></p>
+
+      <div class="cta-section">
+        <a href="#" class="cta-accept">YES! I WANT THE 6-MONTH MENTORSHIP &mdash; $97</a>
+        <br>
+        <button class="cta-decline" onclick="window.location.href='#'">No thanks, I will use LE CODE on my own</button>
+      </div>
+      <div class="guarantee">90-Day Money-Back Guarantee &mdash; No Questions Asked</div>
+
+      <p style="text-align: center; color: rgba(255,255,255,0.4); font-size: 13px; margin-top: 20px;">And I can hardly wait to see you applying LE CODE with the confidence of someone who has a specialist by her side.</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Spots counter - starts at 5, decreases every 10 seconds until 1
+    (function() {
+      var spots = 5;
+      var el = document.getElementById('spotsNumber');
+      var interval = setInterval(function() {
+        if (spots > 1) {
+          spots--;
+          el.textContent = spots;
+          el.classList.remove('pulse');
+          void el.offsetWidth;
+          el.classList.add('pulse');
+        } else {
+          clearInterval(interval);
+        }
+      }, 10000);
+    })();
+
+    // Prevent back navigation
+    (function() {
+      history.pushState(null, '', location.href);
+      history.pushState(null, '', location.href);
+      window.addEventListener('popstate', function() {
+        history.pushState(null, '', location.href);
+      });
+    })();
+  </script>
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
+
+</body>
+</html>

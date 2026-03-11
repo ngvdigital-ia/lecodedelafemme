@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Code De La Femme Irrésistible</title>
+    <meta name="description" content="Complete your transformation with LE SECRET du Désir — the guide to physical intimacy for the irresistible woman.">
+
+    <!-- UTMify Scripts -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+
+    <script>
+      window.pixelId = "69a97f4b2fffc4856a1e6b24";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+
+    <!-- Back Redirect -->
+    <script>
+    (function() {
+      var thankYouPage = 'https://www.lecodedelafemme.online/';
+      history.pushState(null, '', location.href);
+      history.pushState(null, '', location.href);
+      window.addEventListener('popstate', function() {
+        window.location.replace(thankYouPage);
+      });
+    })();
+    </script>
+
+    <!-- NexFy Upsell Widget (comentado até configurar no RubusPay)
+    <script src="https://www.rubuspay.com/upsell-widget.js" defer></script>
+    -->
+
+    <style>
+        /* ===== DESIGN TOKENS (Tema Claro - up2-sv) ===== */
+        :root {
+            --bg: #ffffff;
+            --surface: #f7f8fa;
+            --surface-elevated: #ffffff;
+            --text: #111827;
+            --text-secondary: #374151;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --border-strong: #d1d5db;
+            --gold: #f5c542;
+            --gold-600: #e2b236;
+            --primary: #0ea5e9;
+            --primary-hover: #0284c7;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+
+            --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+            --fs-h1: clamp(2rem, 6vw, 2.5rem);
+            --fs-h2: clamp(1.75rem, 4vw, 2rem);
+            --fs-h3: clamp(1.5rem, 3vw, 1.75rem);
+            --fs-h4: clamp(1.25rem, 2.5vw, 1.5rem);
+            --fs-body: 1rem;
+            --fs-small: 0.875rem;
+            --fs-xs: 0.75rem;
+
+            --fw-light: 300;
+            --fw-normal: 400;
+            --fw-medium: 500;
+            --fw-semibold: 600;
+            --fw-bold: 700;
+            --fw-extrabold: 800;
+
+            --lh-tight: 1.25;
+            --lh-normal: 1.6;
+            --lh-relaxed: 1.75;
+
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            --space-24: 6rem;
+
+            --container-max: 1200px;
+            --container-padding: var(--space-8);
+            --border-radius: 0.75rem;
+            --border-radius-lg: 1rem;
+            --border-radius-xl: 1.5rem;
+
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.06);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.12), 0 1px 2px -1px rgb(0 0 0 / 0.08);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.12), 0 2px 4px -2px rgb(0 0 0 / 0.08);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.12), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.12), 0 8px 10px -6px rgb(0 0 0 / 0.08);
+
+            --transition-fast: 150ms ease-in-out;
+            --transition-normal: 200ms ease-in-out;
+            --transition-slow: 300ms ease-in-out;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #ffffff;
+                --surface: #f7f8fa;
+                --surface-elevated: #ffffff;
+                --text: #111827;
+                --text-secondary: #374151;
+                --muted: #6b7280;
+                --border: #e5e7eb;
+                --border-strong: #d1d5db;
+            }
+        }
+
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: var(--font-body);
+            font-size: var(--fs-body);
+            line-height: var(--lh-normal);
+            color: var(--text);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+              radial-gradient(circle at 20% 10%, rgba(245, 197, 66, 0.12), transparent 35%),
+              radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.08), transparent 30%),
+              radial-gradient(closest-side, rgba(17,24,39,0.03), transparent 60%);
+            opacity: 0.35;
+            z-index: 0;
+        }
+
+        img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+        button { cursor: pointer; border: none; background: none; font: inherit; }
+        a { color: inherit; text-decoration: none; }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: linear-gradient(180deg, #ffffff 0%, #f3f4f6 100%);
+            border-radius: 2rem;
+            padding: 6px;
+            margin: var(--space-8) 0;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            position: relative;
+            height: 60px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            height: 48px;
+            width: 90%;
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--space-8);
+            color: white;
+            font-weight: var(--fw-bold);
+            font-size: 1.125rem;
+            position: relative;
+            box-shadow: 0 6px 24px rgba(34, 197, 94, 0.28);
+            transition: all var(--transition-normal);
+            overflow: hidden;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: var(--fw-bold);
+            line-height: var(--lh-tight);
+            color: var(--text);
+            margin-bottom: var(--space-4);
+        }
+        h1 { font-size: var(--fs-h1); font-weight: var(--fw-extrabold); }
+        h2 { font-size: var(--fs-h2); }
+        h3 { font-size: var(--fs-h3); }
+
+        p {
+            margin-bottom: var(--space-4);
+            color: var(--text-secondary);
+            max-width: 65ch;
+        }
+
+        /* NexFy Buttons */
+        .nexfy-btn-accept {
+            display: block;
+            width: 100%;
+            padding: var(--space-4) var(--space-6);
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
+            font-weight: var(--fw-bold);
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            margin-bottom: var(--space-3);
+            position: relative;
+            overflow: hidden;
+        }
+        .nexfy-btn-accept::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+            animation: shine 3s infinite;
+        }
+        .nexfy-btn-accept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
+        }
+        .nexfy-btn-accept:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .nexfy-btn-decline {
+            display: block;
+            width: 100%;
+            padding: var(--space-3) var(--space-6);
+            background: transparent;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius-lg);
+            font-weight: var(--fw-normal);
+            font-size: var(--fs-small);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+        .nexfy-btn-decline:hover {
+            background: var(--surface);
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            :root { --container-padding: var(--space-4); }
+            .progress-container { height: 54px; }
+            .progress-bar { height: 42px; font-size: 1rem; }
+            h1 { font-size: clamp(1.75rem, 6vw, 2.25rem); }
+            h2 { font-size: clamp(1.5rem, 5vw, 1.9rem); }
+            p { font-size: 1rem; }
+            .nexfy-btn-accept { font-size: 1rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        *:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- ATTENTION SECTION -->
+        <section style="padding: var(--space-8) 0; text-align: center;">
+            <div class="container">
+                <div style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; padding: var(--space-4) var(--space-8); border-radius: var(--border-radius-lg); font-weight: var(--fw-semibold); margin-bottom: var(--space-6);">
+                    &#9888;&#65039; ATTENTION: Please do NOT close this page until the process is complete. Doing so may cause an error and delay your access.
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <span>PURCHASE COMPLETE!</span>
+                        <span style="font-size: 1.25rem;">90%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTIVATION -->
+        <section style="padding: var(--space-8) 0; text-align: center;">
+            <div class="container">
+                <p style="font-size: 1.125rem; margin-bottom: var(--space-4); max-width: none;">Your access to <strong>Le Code de la Femme Irr&eacute;sistible</strong> is being activated right now.</p>
+            </div>
+        </section>
+
+        <!-- CONGRATULATIONS -->
+        <section style="padding: var(--space-10) 0;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: var(--space-6);">
+                    <h1 style="font-size: 2rem; font-weight: var(--fw-bold); color: var(--text);">CONGRATULATIONS YOU HAVE BEEN SELECTED TO WIN A GIFT!</h1>
+                </div>
+
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div style="background: var(--surface); border: 1px solid var(--border); padding: var(--space-4); border-radius: var(--border-radius-lg); margin-bottom: var(--space-6);">
+                        &#9888;&#65039; ATTENTION: Please, DO NOT close this page until you finish the process. This may cause an error in releasing your access.
+                    </div>
+
+                    <p>You have gone further than ninety-seven percent of the women who made it this far.</p>
+                    <p>And because of that, you deserve to know something that almost no one tells you.</p>
+                    <p style="margin-bottom: var(--space-6);">Something that gets straight to the point.</p>
+
+                    <p>LE CODE will make him become obsessed with you.</p>
+                    <p>Emotionally. Psychologically.</p>
+                    <p style="margin-bottom: var(--space-6);">He will think about you. He will want to protect you. He will want to win you over.</p>
+
+                    <h2 style="margin-bottom: var(--space-4);">But let me ask you a question that may be uncomfortable:</h2>
+                    <p style="margin-bottom: var(--space-6); font-weight: var(--fw-semibold);">And when the time comes for the two of you to be alone together in the bedroom... Will you know exactly what to do?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE TRUTH -->
+        <section style="padding: var(--space-8) 0; background: var(--surface);">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 style="margin-bottom: var(--space-4);">Because this is the truth no one talks about:</h2>
+                    <p>A man can be completely in love with you...</p>
+                    <p>And still have a specific fantasy he has never put into words.</p>
+                    <p>A physical desire he has carried for months or even years.</p>
+                    <p style="font-weight: var(--fw-semibold);">And if it is never fulfilled... He will look for it somewhere else.</p>
+                    <p>Not because he does not love you.</p>
+                    <p>But because a man's mind works like that.</p>
+                    <p>The emotional side and the physical side operate separately in him.</p>
+                    <p>You may completely occupy his heart...</p>
+                    <p style="margin-bottom: var(--space-6);">And still leave a gap you did not even know existed.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE PROBLEM -->
+        <section style="padding: var(--space-8) 0;">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <p>I have seen this happen more times than I wish I had.</p>
+                    <p>Women who used the right techniques, won back the man they loved, created a deep emotional connection...</p>
+                    <p>And then lost everything because, in intimacy, they did not know what to do with their hands, with their body, with their energy.</p>
+                    <p>Because no one truly teaches this.</p>
+                    <p>What we learn about sex is either too clinical, too vulgar, or completely disconnected from what men really feel and fantasize about.</p>
+                    <p style="font-weight: var(--fw-semibold);">And I do not want that to happen to you.</p>
+                    <p>You have done a lot to get this far.</p>
+                    <p style="margin-bottom: var(--space-6);">You deserve to live the complete relationship &mdash; emotional AND physical.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE SOLUTION -->
+        <section style="padding: var(--space-8) 0; background: var(--surface);">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <p>That is why I created something that complements everything you are going to learn in LE CODE.</p>
+                    <p>What did I have to do to create this?</p>
+                    <ul style="margin-left: 1rem; margin-bottom: var(--space-6); color: var(--text-secondary);">
+                        <li style="margin-bottom: var(--space-2);">Years of research.</li>
+                        <li style="margin-bottom: var(--space-2);">Hundreds of conversations with men about what they truly desire but never say out loud.</li>
+                        <li style="margin-bottom: var(--space-2);">Interviewing couples who had an incredible sex life.</li>
+                        <li>Understanding exactly what made an unforgettable woman different from an ordinary woman in bed.</li>
+                    </ul>
+                    <p>But you will not need to do any of that.</p>
+                    <p style="margin-bottom: var(--space-6);">Because I have already done it for you.</p>
+
+                    <h2 style="margin-bottom: var(--space-4);">Introducing: LE SECRET du D&eacute;sir</h2>
+                    <p style="margin-bottom: var(--space-6); font-weight: var(--fw-semibold);">The complete guide to physical intimacy for the irresistible woman.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT YOU DISCOVER -->
+        <section style="padding: var(--space-8) 0;">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 style="margin-bottom: var(--space-4);">You will discover:</h2>
+                    <div style="display: grid; gap: var(--space-3); margin-bottom: var(--space-6);">
+                        <p>&rarr; The positions that activate a man's instinct to pursue &mdash; and make him feel like he was the one who won you over, even while you are the one in control</p>
+                        <p>&rarr; What a man's eyes look for in the bedroom &mdash; and how to use that to create a memory he cannot erase</p>
+                        <p>&rarr; The difference between "having sex with him" and "making him live out a fantasy with you" &mdash; and how to cross that line naturally</p>
+                        <p>&rarr; How to use your body to reinforce everything LE CODE has already planted in his mind &mdash; because when the physical and the emotional align, his obsession with you becomes irreversible</p>
+                        <p>&rarr; What to do in the first ten minutes to create an experience he will compare with everything he has lived before &mdash; and that everything else will lose to</p>
+                        <p>&rarr; Specific positions for each type of connection: when you want intensity, when you want intimacy, when you want him to completely lose control</p>
+                    </div>
+
+                    <p>And listen, this is not a generic guide to Kama Sutra positions.</p>
+                    <p>It is a guide built on how the male mind processes physical intimacy.</p>
+                    <p>Every technique here was designed to reinforce exactly what LE CODE has already built in his mind.</p>
+                    <p style="font-weight: var(--fw-semibold); margin-bottom: var(--space-6);">When you combine the two... He has no way out.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXCLUSIVITY -->
+        <section style="padding: var(--space-8) 0; background: var(--surface);">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <p>And there is something I need to tell you right now.</p>
+                    <p style="font-weight: var(--fw-semibold);">This offer exists only on this page.</p>
+                    <p>The moment you leave here, it disappears.</p>
+                    <p>Not because it is a marketing trick.</p>
+                    <p>But because this material is exclusive to those who joined LE CODE.</p>
+                    <p style="margin-bottom: var(--space-6);">It is not available anywhere else. And it will not be.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <section style="padding: var(--space-8) 0;">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <p>Normally, a course on intimacy with this level of depth and personalization would cost one hundred and ninety-seven dollars.</p>
+                    <p>My one-on-one coaching clients pay that just to have a conversation about this topic.</p>
+                    <p>But because you have already trusted LE CODE...</p>
+                    <p style="margin-bottom: var(--space-6);">I want you to have the full picture.</p>
+
+                    <p style="font-weight: var(--fw-semibold);">That is why today, only on this page, LE SECRET du D&eacute;sir is available for thirty-seven dollars.</p>
+                    <p>One-time payment.</p>
+                    <p>Lifetime access.</p>
+                    <p style="margin-bottom: var(--space-6);">You can access it on your phone, whenever you want, wherever you want.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPLETE PICTURE -->
+        <section style="padding: var(--space-8) 0; background: var(--surface);">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 style="margin-bottom: var(--space-4);">Think about what you will have in your hands:</h2>
+                    <div style="display: grid; gap: var(--space-2); margin-bottom: var(--space-6);">
+                        <p>&#10003; <strong>LE CODE</strong> taking care of his mind.</p>
+                        <p>&#10003; <strong>LE SECRET du D&eacute;sir</strong> taking care of his body.</p>
+                    </div>
+                    <p style="font-weight: var(--fw-semibold);">The two together? There is no woman more irresistible than the one who knows how to fully occupy a man &mdash; inside and out.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA TEXT -->
+        <section style="padding: var(--space-12) 0;">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                    <p style="max-width: none; margin-bottom: var(--space-4);">Click the button below now and add <strong>LE SECRET du D&eacute;sir</strong> to your access.</p>
+                    <p style="max-width: none; font-weight: var(--fw-semibold);">Because you deserve the complete relationship. Not just half of it.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- NEXFY UPSELL SECTION -->
+    <section id="nexfy-upsell" style="padding: var(--space-20) 0; background: var(--surface);">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto; background: var(--surface-elevated); padding: var(--space-8); border-radius: var(--border-radius-xl); box-shadow: var(--shadow-xl); text-align: center;">
+
+                <!-- Accept Button -->
+                <button data-nexfy-accept class="nexfy-btn-accept">
+                    YES! I WANT LE SECRET DU D&Eacute;SIR &mdash; $37
+                </button>
+
+                <!-- Decline Button -->
+                <button data-nexfy-decline class="nexfy-btn-decline">
+                    No thanks, I only want LE CODE
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Erro do widget (oculto por padrao) -->
+    <div data-nexfy-error style="display:none; max-width:600px; margin:var(--space-4) auto; padding:var(--space-4); background:#fef2f2; border:1px solid #fecaca; border-radius:var(--border-radius); color:#991b1b; text-align:center;"></div>
+
+</body>
+</html>

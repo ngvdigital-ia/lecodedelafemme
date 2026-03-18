@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Code de la Femme Irrésistible</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: #ffffff; color: #1a1a1a; line-height: 1.6; min-height: 100vh; }
+        .container { max-width: 600px; margin: 0 auto; padding: 0 20px; min-height: 100vh; display: flex; flex-direction: column; }
+        .progress-container { padding: 20px 0; position: sticky; top: 0; background: #fff; z-index: 100; }
+        .progress-bar { height: 8px; background: #E5E5E5; border-radius: 100px; overflow: hidden; }
+        .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #3CB371 0%, #2E8B57 100%); border-radius: 100px; transition: width 0.4s ease; }
+        .form-wrapper { flex: 1; padding: 20px 0; }
+        .step { display: none; animation: fadeIn 0.4s ease; }
+        .step.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .intro-container { text-align: center; padding: 20px 0; }
+        .intro-image { margin-bottom: 24px; }
+        .intro-image img { max-width: 100%; height: auto; border-radius: 12px; }
+        .intro-headline { font-size: 1.75rem; font-weight: 800; color: #1a1a1a; line-height: 1.3; margin-bottom: 16px; }
+        .intro-subheadline { font-size: 1rem; color: #4a4a4a; line-height: 1.6; margin-bottom: 24px; }
+        .intro-badge { font-size: 0.8rem; color: #6B7280; margin-top: 16px; }
+        .step-title { font-size: 1.5rem; font-weight: 700; color: #1a1a1a; text-align: center; margin-bottom: 24px; line-height: 1.3; }
+        .step-subtitle { font-size: 1rem; color: #4a4a4a; text-align: center; margin-bottom: 20px; line-height: 1.6; }
+        .step-progress { text-align: center; font-size: 0.875rem; color: #9CA3AF; margin-top: 24px; }
+        .radio-group { display: flex; flex-direction: column; gap: 12px; }
+        .radio-card { cursor: pointer; }
+        .radio-card input { display: none; }
+        .radio-content { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: #ffffff; border: 2px solid #E5E5E5; border-radius: 12px; transition: all 0.2s ease; }
+        .radio-card:hover .radio-content { border-color: #3CB371; }
+        .radio-card input:checked + .radio-content { border-color: #3CB371; background: #F0FFF4; }
+        .radio-indicator { width: 24px; height: 24px; border: 2px solid #D1D5DB; border-radius: 50%; flex-shrink: 0; position: relative; transition: all 0.2s ease; }
+        .radio-card input:checked + .radio-content .radio-indicator { border-color: #3CB371; }
+        .radio-card input:checked + .radio-content .radio-indicator::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: #3CB371; border-radius: 50%; }
+        .radio-text { display: flex; flex-direction: column; gap: 2px; }
+        .radio-title { font-size: 1rem; font-weight: 600; color: #1a1a1a; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; font-family: inherit; font-size: 1rem; font-weight: 600; border: none; border-radius: 50px; cursor: pointer; transition: all 0.2s ease; text-decoration: none; }
+        .btn-primary { background: #3CB371; color: white; }
+        .btn-primary:hover { background: #2E8B57; transform: translateY(-1px); }
+        .btn-large { padding: 18px 36px; font-size: 1.1rem; }
+        .btn-full { width: 100%; }
+        .btn-pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(60, 179, 113, 0.4); } 50% { box-shadow: 0 0 0 15px rgba(60, 179, 113, 0); } }
+        .final-container { text-align: center; padding: 20px 0; }
+        .final-image { margin-bottom: 24px; }
+        .final-image img { max-width: 100%; height: auto; border-radius: 12px; }
+        .footer { text-align: center; padding: 24px 0; border-top: 1px solid #E5E5E5; margin-top: auto; }
+        .footer p { font-size: 0.8rem; color: #9CA3AF; }
+        @media (max-width: 480px) {
+            .intro-headline { font-size: 1.5rem; }
+            .step-title { font-size: 1.25rem; }
+            .btn-large { padding: 16px 24px; font-size: 1rem; }
+        }
+    </style>
+
+    <!-- Pixel UTMify -->
+    <script>
+      window.pixelId = "69a97f4b2fffc4856a1e6b24";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+</head>
+<body>
+    <div class="container">
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="form-wrapper">
+            <form id="quizForm">
+
+                <!-- Step 0: Introduction -->
+                <div class="step active" data-step="0">
+                    <div class="intro-container">
+                        <div class="intro-image">
+                            <img src="imagens/intro.png" alt="Le Code de la Femme">
+                        </div>
+                        <h1 class="intro-headline">D&eacute;couvrez le secret qui pousse n'importe quel homme &agrave; s'engager, &agrave; arr&ecirc;ter de pr&ecirc;ter attention &agrave; une autre et &agrave; vous mettre comme priorit&eacute; dans sa vie &mdash; en moins de trente jours</h1>
+                        <p class="intro-subheadline">R&eacute;pondez &agrave; 6 questions rapides et je vais vous montrer gratuitement comment activer l'instinct protecteur qui existe &agrave; l'int&eacute;rieur de chaque homme et qui lui fait ressentir pour vous quelque chose d'une intensit&eacute; telle que m&ecirc;me lui ne peut pas l'expliquer.</p>
+                        <button type="button" class="btn btn-primary btn-large btn-pulse" id="startQuiz">Je veux d&eacute;couvrir &ccedil;a maintenant</button>
+                        <p class="intro-badge">&ensp;100% confidentiel &bull; 2 minutes &bull; R&eacute;sultat personnalis&eacute; instantan&eacute;</p>
+                    </div>
+                </div>
+
+                <!-- Step 1 -->
+                <div class="step" data-step="1">
+                    <h2 class="step-title">Avez-vous d&eacute;j&agrave; eu l'impression que l'homme que vous aimez s'&eacute;loignait, devenait froid, r&eacute;pondait moins&hellip; sans que vous compreniez pourquoi ?</h2>
+                    <div class="radio-group">
+                        <label class="radio-card"><input type="radio" name="q1" value="yes" required><div class="radio-content"><div class="radio-indicator"></div><div class="radio-text"><span class="radio-title">Oui, j'ai d&eacute;j&agrave; v&eacute;cu &ccedil;a et c'&eacute;tait horrible. Me sentir ainsi est l'une des pires sensations qui existent.</span></div></div></label>
+                        <label class="radio-card"><input type="radio" name="q1" value="no"><div class="radio-content"><div class="radio-indicator"></div><div class="radio-text"><span class="radio-title">Non, je n'ai jamais v&eacute;cu &ccedil;a et ma relation est parfaite.</span></div></div></label>
+                    </div>
+                    <div class="step-progress">1/6</div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step" data-step="2">
+                    <h2 class="step-title">Avez-vous d&eacute;j&agrave; essay&eacute; de lui laisser de l'espace, d'envoyer un message, de couper tout contact, de faire semblant d'aller bien&hellip; et rien de tout cela n'a vraiment fonctionn&eacute; ?</h2>
+                    <div class="radio-group">
+                        <label class="radio-card"><input type="radio" name="q2" value="yes" required><div class="radio-content"><div class="radio-indicator"></div><div class="radio-text"><span class="radio-title">Oui, j'ai d&eacute;j&agrave; tout essay&eacute; et c'est toujours pareil. Rien de ce que je fais ne semble r&eacute;soudre la situation.</span></div></div></label>
+                        <label class="radio-card"><input type="radio" name="q2" value="no"><div class="radio-content"><div class="radio-indicator"></div><div class="radio-text"><span class="radio-title">Non, je n'ai jamais eu besoin d'essayer quoi que ce soit parce qu'il ne s'est jamais &eacute;loign&eacute;.</span></div></div></label>
+                    </div>
+                    <div class="step-progress">2/6</div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step" data-step="3">
+                    <h2 class="step-title">S'il existait une mani&egrave;re d'entrer dans l'esprit de votre homme, de comprendre ce qu'il ressent vraiment pour vous et de faire en sorte qu'il vous voie comme la femme la plus importante de sa vie, sans manipulation et sans avoir besoin de lui courir apr&egrave;s, aimeriez-vous d&eacute;couvrir cela ?</h2>
+                    <div class="radio-group">
+                        <label class="radio-card"><input type="radio" name="q3" value="yes" required><div class="radio-content"><div class="radio-indicator"></div><div class="radio-text"><span class="radio-title">Oui, je veux vraiment comprendre comment fonctionne son esprit et ce que je peux faire diff&eacute;remment.</span></div></div></label>
+                        <label class="radio-card"><input type="radio" name="q3" value="no"><div class="radio-content"><div class="radio-indicator"></div><div class="radio-text"><span class="radio-title">Non, je pr&eacute;f&egrave;re continuer &agrave; essayer de deviner ce qu'il veut.</span></div></div></label>
+                    </div>
+                    <div class="step-progress">3/6</div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step" data-step="4">
+                    <h2 class="step-title">Il existe un instinct cach&eacute; dans l'esprit de chaque homme qui, lorsqu'il est activ&eacute;, lui fait ressentir pour une femme une connexion si profonde qu'il n'arrive tout simplement plus &agrave; cesser de penser &agrave; elle. La plupart des femmes n'ont jamais appris &agrave; activer cela. Aimeriez-vous d&eacute;couvrir comment cela fonctionne ?</h2>
+                    <div class="radio-group">
+                        <label class="radio-card"><input type="radio" name="q4" value="yes" required><div class="radio-content"><div class="radio-indicator"></div><div class="radio-text"><span class="radio-title">Oui, je veux savoir comment activer cela chez mon homme.</span></div></div></label>
+                        <label class="radio-card"><input type="radio" name="q4" value="no"><div class="radio-content"><div class="radio-indicator"></div><div class="radio-text"><span class="radio-title">Non, je pense que cela ne fera pas de diff&eacute;rence dans mon cas.</span></div></div></label>
+                    </div>
+                    <div class="step-progress">4/6</div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step" data-step="5">
+                    <h2 class="step-title">Si vous pouviez vous r&eacute;veiller demain en sachant exactement quoi faire pour qu'il vous regarde autrement, vous choisisse chaque jour et veuille construire quelque chose de vrai avec vous, cela changerait-il votre vie ?</h2>
+                    <div class="radio-group">
+                        <label class="radio-card"><input type="radio" name="q5" value="yes" required><div class="radio-content"><div class="radio-indicator"></div><div class="radio-text"><span class="radio-title">Oui. C'est exactement ce que je veux et ce dont j'ai besoin.</span></div></div></label>
+                        <label class="radio-card"><input type="radio" name="q5" value="no"><div class="radio-content"><div class="radio-indicator"></div><div class="radio-text"><span class="radio-title">Non, la situation me convient telle qu'elle est.</span></div></div></label>
+                    </div>
+                    <div class="step-progress">5/6</div>
+                </div>
+
+                <!-- Step 6: Final -->
+                <div class="step" data-step="6">
+                    <div class="final-container">
+                        <div class="final-image">
+                            <img src="imagens/specialist.png" alt="Sp&eacute;cialiste">
+                        </div>
+                        <h1 class="intro-headline">Un sp&eacute;cialiste qui a pass&eacute; 8 ans &agrave; &eacute;tudier le comportement masculin a cr&eacute;&eacute; une m&eacute;thode utilis&eacute;e par plus de 15&thinsp;000 femmes pour activer cet instinct et amener un homme &agrave; s'engager pour de vrai.</h1>
+                        <p class="intro-subheadline">&Ecirc;tes-vous pr&ecirc;te &agrave; regarder la vid&eacute;o gratuite dans laquelle il explique comment cela fonctionne ?</p>
+                        <a href="https://lecodedelafemme.online/vsl" class="btn btn-primary btn-large btn-pulse btn-full">Oui, je veux voir la vid&eacute;o maintenant</a>
+                    </div>
+                    <div class="step-progress">6/6</div>
+                </div>
+
+            </form>
+        </div>
+
+        <footer class="footer"><p>&copy; 2026 Le Code de la Femme Irr&eacute;sistible</p></footer>
+    </div>
+
+    <script>
+        class QuizController {
+            constructor() {
+                this.currentStep = 0;
+                this.totalSteps = 6;
+                this.progressFill = document.getElementById('progressFill');
+                this.init();
+            }
+            init() {
+                document.getElementById('startQuiz').addEventListener('click', () => this.nextStep());
+                this.setupAutoAdvance();
+                this.updateProgress();
+            }
+            setupAutoAdvance() {
+                [1, 2, 3, 4, 5].forEach(stepNum => {
+                    const step = document.querySelector(`.step[data-step="${stepNum}"]`);
+                    if (step) {
+                        step.querySelectorAll('input[type="radio"]').forEach(radio => {
+                            radio.addEventListener('change', () => setTimeout(() => this.nextStep(), 500));
+                        });
+                    }
+                });
+            }
+            goToStep(stepNumber) {
+                if (stepNumber < 0 || stepNumber > this.totalSteps) return;
+                const currentStepEl = document.querySelector('.step.active');
+                if (currentStepEl) currentStepEl.classList.remove('active');
+                const targetStepEl = document.querySelector(`.step[data-step="${stepNumber}"]`);
+                if (targetStepEl) {
+                    targetStepEl.classList.add('active');
+                    this.currentStep = stepNumber;
+                    this.updateProgress();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+            nextStep() { this.goToStep(this.currentStep + 1); }
+            updateProgress() {
+                let progress = this.currentStep > 0 ? (this.currentStep / this.totalSteps) * 100 : 0;
+                this.progressFill.style.width = `${progress}%`;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => new QuizController());
+    </script>
+</body>
+</html>
